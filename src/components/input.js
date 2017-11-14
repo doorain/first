@@ -20,7 +20,7 @@ getWeather(){
     this.setState({
       x:res.data,
       cityName:res.data.city.name,
-      currentTemp:res.data
+      currentTemp:res.data.list[0].main.temp
     })
   })
 }
@@ -40,7 +40,7 @@ console.log(this.state.x);
       <div>
         <input placeholder={"City, Country"} type="text" onChange={this.handleChange}/>
          <button onClick={this.getWeather}> Search </button><br/>
-         {this.state.cityName}
+         {this.state.cityName}{this.state.currentTemp}
 
       </div>
     )
